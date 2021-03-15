@@ -9,4 +9,4 @@ app.use("/", function(request, response) {
     response.send("<h1>Главная страница</h1>");
 });
 
-app.listen(8080);
+app.listen(80);
