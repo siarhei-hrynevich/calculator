@@ -14,6 +14,7 @@ equalButton.addEventListener("click", function () {
     output.innerHTML = output.innerHTML.replace("×", "*")
     output.innerHTML = output.innerHTML.replace("%", "*100/")
     output.innerHTML = eval(output.innerHTML)
+    decimalFlag = output.innerHTML.includes('.');
     operationFlag = false
 })
 
@@ -58,7 +59,4 @@ decimalButton.addEventListener("click", function () {
         output.innerHTML += decimalButton.innerHTML
         decimalFlag = true
     }
-
-
 })
-
