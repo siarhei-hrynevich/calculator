@@ -42,6 +42,7 @@
 }
 
 body {
+    user-select: none;
     font-family: Bradley Hand, cursive;
     font-size: 25px;
     display: flex;
