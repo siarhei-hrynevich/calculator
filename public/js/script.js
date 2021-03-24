@@ -14,6 +14,10 @@ equalButton.addEventListener("click", function () {
     output.innerHTML = output.innerHTML.replace("×", "*")
     output.innerHTML = output.innerHTML.replace("%", "*100/")
     output.innerHTML = eval(output.innerHTML)
+    if(output.innerHTML=="NaN"){
+        alert("error")
+        output.innerHTML = ""
+    }
     operationFlag = false
 })
 
