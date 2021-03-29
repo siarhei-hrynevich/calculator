@@ -1,11 +1,17 @@
 import React from 'react';
 
-const NumberProvider = () => {
-    return (
-        <div>
+export const NumberContext = React.createContext();
 
-        </div>
-    );
+const NumberProvider = (props) => {
+  const number = '0';
+  return (
+    <NumberContext.Provider
+      value={{
+        number,
+      }}>
+      {props.children}
+    </NumberContext.Provider>
+  );
 };
 
 export default NumberProvider;
