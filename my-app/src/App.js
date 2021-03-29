@@ -1,10 +1,11 @@
+import React from 'react';
+import Calculator from './components/Calculator';
+import NumberProvider from './components/NumberProvider';
 
-function App() {
-  return (
-    <div >
-      Learn React
-    </div>
-  );
-}
+const App = () => (
+  <NumberProvider>
+    <Calculator />
+  </NumberProvider>
+);
 
 export default App;
