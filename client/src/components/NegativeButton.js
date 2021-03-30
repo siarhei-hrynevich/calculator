@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { NumberContext } from './NumberProvider';
 
 const NegativeButton = () => {
+    const { handleToggleNegative } = useContext(NumberContext);
     return (
-        <div>
-
-        </div>
+        <button type="button" onClick={() => handleToggleNegative()}>
+            -/+
+        </button>
     );
 };
 
