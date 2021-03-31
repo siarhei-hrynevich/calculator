@@ -4,7 +4,7 @@ import { NumberContext } from './NumberProvider';
 const NegativeButton = ({ buttonValue }) => {
     const { handleToggleNegative } = useContext(NumberContext);
     return (
-        <button type="button" onClick={() => handleToggleNegative(buttonValue)}>
+        <button type="button" class="column action-button" onClick={() => handleToggleNegative(buttonValue)}>
             {buttonValue}
         </button>
     );
