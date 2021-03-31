@@ -1,11 +1,10 @@
 import React from 'react';
 import Calculator from './components/Calculator';
-import NumberProvider from './components/NumberProvider';
 
 const App = () => (
-  <NumberProvider>
+  <div>
     <Calculator />
-  </NumberProvider>
+  </div>
 );
 
 export default App;

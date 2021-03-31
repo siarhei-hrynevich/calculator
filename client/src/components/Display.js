@@ -1,12 +1,9 @@
-import React, { useContext } from 'react';
-import { NumberContext } from './NumberProvider';
+import React from 'react';
 
-const Display = () => {
-  const { number } = useContext(NumberContext);
+const Display = ({value}) => {
   return (
-    <div class="result-field">
-      <span>{number}</span>
-      <p>Enter Some Numbers</p>
+    <div className="result-field">
+      <span>{value}</span>
     </div>
   );
 };
