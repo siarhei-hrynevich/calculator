@@ -1,22 +1,20 @@
 import React from 'react';
 import NumberButton from './NumberButton';
 import FunctionButton from './FunctionButton';
-import ClearButton from './ClearButton';
 import Display from './Display';
 import EqualButton from './EqualButton';
-import RemoveButton from './BackButton';
 import NegativeButton from './NegativeButton';
 
 const Calculator = () => (
     <div>
         <div>
-            <h1>CALC-U-LATER</h1>
+            <h1>CALC-U-LATOR</h1>
             <Display />
         </div>
         <div>
-            <ClearButton />
-            <RemoveButton />
-            <NegativeButton />
+            <NegativeButton buttonValue='C' />
+            <NegativeButton buttonValue='-/+'/>
+            <NegativeButton buttonValue='%'/>
             <FunctionButton buttonValue='/' />
             <NumberButton buttonValue={7} />
             <NumberButton buttonValue={8} />
@@ -30,9 +28,7 @@ const Calculator = () => (
             <NumberButton buttonValue={2} />
             <NumberButton buttonValue={3} />
             <FunctionButton buttonValue='+' />
-            <div className='zero-button'>
-                <NumberButton buttonValue={0} />
-            </div>
+            <NumberButton buttonValue={0} />
             <NumberButton buttonValue='.' />
             <EqualButton />
         </div>
