@@ -6,7 +6,7 @@ const NumberProvider = props => {
   const [number, setNumber] = useState('');
   const [storedNumber, setStoredNumber] = useState('');
   const [functionType, setFunctionType] = useState('');
-  
+
   const handleSetDisplayValue = num => {
   };
 
@@ -14,9 +14,6 @@ const NumberProvider = props => {
   };
 
   const handleClearValue = () => {
-  };
-
-  const handleBackButton = () => {
   };
 
   const handleSetCalcFunction = type => {
@@ -33,7 +30,6 @@ const NumberProvider = props => {
       value={{
         doMath,
         functionType,
-        handleBackButton,
         handleClearValue,
         handleSetCalcFunction,
         handleSetDisplayValue,

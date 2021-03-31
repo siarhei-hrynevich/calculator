@@ -4,8 +4,8 @@ import { NumberContext } from './NumberProvider';
 const Display = () => {
   const { number } = useContext(NumberContext);
   return (
-    <div>
-      <h2>{number}</h2>
+    <div class="result-field">
+      <span>{number}</span>
       <p>Enter Some Numbers</p>
     </div>
   );
