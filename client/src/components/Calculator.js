@@ -1,24 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Display from './Display';
 import Button from './Button';
 import Row from './Row';
 import './styles/Styles.css'
 
 const Calculator = () => {
+    const [number, setNumber] = useState('');
     const handlerNumber = (el) => {
-        console.log(el);
+        if (number.length < 10)
+            setNumber(`${number}${el}`);
     }
     const handlerFunc = (el) => {
         console.log(el);
     }
-    const handlerClear = (el) => {
-        console.log(el);
+    const handlerClear = () => {
+        setNumber('');
     }
 
     return (
         <div>
             <div>
-                <Display value=' ' />
+                <Display value={number} />
             </div>
             <div className="buttons">
                 <Row>

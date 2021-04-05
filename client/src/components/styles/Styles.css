@@ -4,6 +4,7 @@
     align-items: center;
     background-color: #336;
     padding-top: 120px;
+    min-height: 100px;
 }
 
 .result-field span {
