@@ -12,31 +12,55 @@ const Calculator = () => {
     const [value, setValue] = useState('');
     const [functionType, setFunctionType] = useState('');
 
-    const handlerSetNumberValue = () =>{
+    const handlerSetNumberValue = () => {
         setNumber2(number);
         setNumber('')
     };
-    const handlerNumber = (el) => {  
+    const handlerNumber = (el) => {
         if (!number.includes('.') || el !== '.') {
             setNumber(`${(number + el).replace(/^0+/, '')}`);
-          }
+        }
     }
     const handlerFunc = (el) => {
         if (number) {
             setFunctionType(el);
             handlerSetNumberValue();
-          }
-          if (number2) {
+        }
+        if (number2) {
             setFunctionType(el);
-          }
+        }
     }
     const handlerClear = () => {
         setNumber('');
-        setNumber2(''); 
+        setNumber2('');
         setFunctionType('');
+        setValue('');
     }
     const handlerEqual = () => {
 
+        if (number && number2) {
+            switch (functionType) {
+                case '+':
+                    setValue(`${parseFloat(number2) + parseFloat(number)}`)
+                    break;
+
+                case '-':
+                    setValue(`${parseFloat(number2) - parseFloat(number)}`)
+                    break;
+
+                case '%':
+                    setValue(`${parseFloat(number2) * 100 / parseFloat(number)}`)
+                    break;
+                    
+                case '/':
+                    setValue(`${parseFloat(number2) / parseFloat(number)}`)
+                    break;
+
+                case '*':
+                    setValue(`${parseFloat(number2) * parseFloat(number)}`)
+                    break;
+            }
+        }
     };
     const handlerNegativeFunc = () => {
         if (number) {
@@ -49,17 +73,17 @@ const Calculator = () => {
         } else if (number2 > 0) {
             setNumber2(`-${number2}`);
         } else {
-            const num = number2.slice(1); 
+            const num = number2.slice(1);
             setNumber2(num);
         }
     };
 
-    
+
 
     return (
         <div>
             <div>
-                <Display value={value?{value}:`${number2} ${functionType} ${number}`} />
+                <Display value={value ? `${value}` : `${number2} ${functionType} ${number}`} />
             </div>
             <div className="buttons">
                 <Row>
