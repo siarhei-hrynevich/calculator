@@ -9,7 +9,6 @@ export const NumberContext = React.createContext();
 const Calculator = () => {
     const [number, setNumber] = useState('');
     const [number2, setNumber2] = useState('');
-    const [value, setValue] = useState('');
     const [functionType, setFunctionType] = useState('');
 
     const handlerSetNumberValue = () => {
@@ -34,33 +33,34 @@ const Calculator = () => {
         setNumber('');
         setNumber2('');
         setFunctionType('');
-        setValue('');
     }
     const handlerEqual = () => {
 
         if (number && number2) {
             switch (functionType) {
                 case '+':
-                    setValue(`${parseFloat(number2) + parseFloat(number)}`)
+                    setNumber(`${parseFloat(number2) + parseFloat(number)}`)
                     break;
 
                 case '-':
-                    setValue(`${parseFloat(number2) - parseFloat(number)}`)
+                    setNumber(`${parseFloat(number2) - parseFloat(number)}`)
                     break;
 
                 case '%':
-                    setValue(`${parseFloat(number2) * 100 / parseFloat(number)}`)
+                    setNumber(`${parseFloat(number2) * 100 / parseFloat(number)}`)
                     break;
                     
                 case '/':
-                    setValue(`${parseFloat(number2) / parseFloat(number)}`)
+                    setNumber(`${parseFloat(number2) / parseFloat(number)}`)
                     break;
 
                 case '*':
-                    setValue(`${parseFloat(number2) * parseFloat(number)}`)
+                    setNumber(`${parseFloat(number2) * parseFloat(number)}`)
                     break;
             }
         }
+        setNumber2('');
+        setFunctionType('');
     };
     const handlerNegativeFunc = () => {
         if (number) {
@@ -83,7 +83,7 @@ const Calculator = () => {
     return (
         <div>
             <div>
-                <Display value={value ? `${value}` : `${number2} ${functionType} ${number}`} />
+                <Display value={ !number2 ? `${number}` : `${number2} ${functionType} ${number}`} />
             </div>
             <div className="buttons">
                 <Row>
