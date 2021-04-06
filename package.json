@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "client": "cd client && npm run start",
-    "server": "nodemon app.js",
+    "server": "cross-env CONNECTION_STRING=mysql://root:12345@localhost:3306/calculator nodemon app.js",
     "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -22,6 +22,9 @@
   },
   "homepage": "https://github.com/mynameissergey/calculator#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "body-parser": "^1.19.0",
+    "cross-env": "^7.0.3",
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5"
   }
 }
