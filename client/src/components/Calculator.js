@@ -4,8 +4,6 @@ import Button from './Button';
 import Row from './Row';
 import './styles/Styles.css'
 
-export const NumberContext = React.createContext();
-
 const Calculator = () => {
     const [number, setNumber] = useState('');
     const [number2, setNumber2] = useState('');
