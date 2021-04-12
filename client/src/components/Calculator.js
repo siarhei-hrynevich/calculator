@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Display from './Display';
 import Button from './Button';
 import Row from './Row';
+import History from './History'
 import './styles/Styles.css'
 
 const Calculator = () => {
@@ -80,6 +81,7 @@ const Calculator = () => {
 
     return (
         <div>
+            <History />
             <div>
                 <Display value={ !number2 ? `${number}` : `${number2} ${functionType} ${number}`} />
             </div>
