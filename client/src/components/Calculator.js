@@ -4,6 +4,8 @@ import Button from './Button';
 import Row from './Row';
 import History from './History'
 import './styles/Styles.css'
+import axios from 'axios'
+import qs from 'qs'
 
 const Calculator = () => {
     const [number, setNumber] = useState('');
@@ -48,7 +50,7 @@ const Calculator = () => {
                 case '%':
                     setNumber(`${parseFloat(number2) * 100 / parseFloat(number)}`)
                     break;
-                    
+
                 case '/':
                     setNumber(`${parseFloat(number2) / parseFloat(number)}`)
                     break;
@@ -58,9 +60,15 @@ const Calculator = () => {
                     break;
             }
         }
+        sendOperation(`${number2} ${functionType} ${number}`);
         setNumber2('');
         setFunctionType('');
     };
+
+    const sendOperation = (value) => {
+        axios.post('/api/history', { operation: value });
+    }
+
     const handlerNegativeFunc = () => {
         if (number) {
             if (number > 0) {
@@ -83,7 +91,7 @@ const Calculator = () => {
         <div>
             <History />
             <div>
-                <Display value={ !number2 ? `${number}` : `${number2} ${functionType} ${number}`} />
+                <Display value={!number2 ? `${number}` : `${number2} ${functionType} ${number}`} />
             </div>
             <div className="buttons">
                 <Row>

@@ -1,11 +1,9 @@
 const PORT = process.env.PORT || 8081;
 
 const express = require("express");
-const bodyParser = require('body-parser');
 const OperationDao = require('./src/OperationDao');
 
 const app = express();
-const urlencodedParser = bodyParser.urlencoded({extended: false});
 
 app.use(express.static(__dirname + "/client/build"));
 
@@ -15,8 +13,16 @@ app.get('/api/history/all', async function(req, res) {
     res.send(await dao.getAll());
 });
 
-app.post('/api/history', urlencodedParser, async function(req, res) {
-    if(!req.body) return res.sendStatus(400);
+// Parse URL-encoded bodies (as sent by HTML forms)
+app.use(express.urlencoded());
+
+// Parse JSON bodies (as sent by API clients)
+app.use(express.json());
+
+
+app.post('/api/history', async function(req, res) {
+    console.log(req.body);
+    if(req.body == undefined || req.body.operation == undefined) return res.sendStatus(400);
     const operation = req.body.operation;
     try {
         dao.create(operation);
